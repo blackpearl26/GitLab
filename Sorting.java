@@ -1,12 +1,14 @@
+import java.util.Scanner;
+
 public class Sorting{
     public static void bubbleSort(int[] arr){
         int n = arr.length;
         int temp =0;
-        for(int i = 0; i < n; i++){
-            for(int j=1;j<(n-i);j++){
-                if(arr[j-1]>arr[j]){
-                    temp = arr[j-1];
-                    arr[j-1]=arr[j];
+        for(int i = 0; i < n-1; i++){
+            for(int j=i+1;j<n;j++){
+                if(arr[i]>arr[j]){
+                    temp = arr[i];
+                    arr[i]=arr[j];
                     arr[j]=temp;
                 }
             }
@@ -18,19 +20,43 @@ public class Sorting{
         
     }
 
+    public static void selectionSort(int[] arr){
+        for(int i=0;i<arr.length;i++){
+            int temp;
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[i]>arr[j]){
+                    temp = arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+    }
+
     public static void main(String[] args){
         int[] arr = {20,30,10,40,80,50,60,90,70};
-        for(int i=0;i<arr.length;i++){
-            System.out.print(arr[i]+" ");
+        System.out.println("1.Bubble sort\n2.Insertion Sort\n3.Selection Sort");
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+        switch(choice){
+            case 1: Sorting.bubbleSort(arr);
+                    for(int i=0;i<arr.length;i++){
+                        System.out.print(arr[i]+" ");
+                    }
+                    break;
+            case 2: Sorting.insertionSort(arr);
+                    for(int i=0;i<arr.length;i++){
+                        System.out.print(arr[i]+" ");
+                    }
+                    break;
+            case 3: Sorting.selectionSort(arr);
+                    for(int i=0;i<arr.length;i++){
+                        System.out.print(arr[i]+" ");
+                    }
+                    break;
         }
-        System.out.println();
-        System.out.println("After sorting:");
-        Sorting.bubbleSort(arr);
-        for(int i=0;i<arr.length;i++){
-            System.out.print(arr[i]+" ");
-        }
-
-        insertionSort(arr);
+        
+       
 
 
 
