@@ -11,8 +11,11 @@ public class Sorting{
                 }
             }
         }
-
-
+    }
+    public static void insertionSort(int[] arr){
+        int n = arr.length;
+        System.out.println(n);
+        
     }
 
     public static void main(String[] args){
@@ -26,6 +29,8 @@ public class Sorting{
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
+
+        insertionSort(arr);
 
 
 
